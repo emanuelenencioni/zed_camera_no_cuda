@@ -16,10 +16,10 @@ struct CamParams {
     double k1 = 0.0, k2 = 0.0, k3 = 0.0, p1 = 0.0, p2 = 0.0;
 };
 
-class ZedSplitterNode : public rclcpp::Node
+class ZedCameraNode : public rclcpp::Node
 {
 public:
-    ZedSplitterNode() : Node("zed_splitter_node")
+    ZedCameraNode() : Node("zed_splitter_node")
     {
         // === 1. Declare and get parameters ===
         this->declare_parameter<std::string>("conf_file_path", "");
@@ -74,7 +74,7 @@ public:
         auto frame_duration = std::chrono::duration<double>(1.0 / fps);
         timer_ = this->create_wall_timer(
             std::chrono::duration_cast<std::chrono::nanoseconds>(frame_duration),
-            std::bind(&ZedSplitterNode::timer_callback, this)
+            std::bind(&ZedCameraNode::timer_callback, this)
         );
     }
 
@@ -199,7 +199,7 @@ private:
 int main(int argc, char* argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<ZedSplitterNode>());
+    rclcpp::spin(std::make_shared<ZedCameraNode>());
     rclcpp::shutdown();
     return 0;
 }
