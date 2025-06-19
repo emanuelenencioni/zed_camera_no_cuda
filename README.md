@@ -46,4 +46,7 @@ This package provides a ROS2 interface for Stereolabs ZED cameras, enabling acce
 
 ### Performance Note: High CPU Usage
 
+### FUTURE Works
+Levarage vulkan backend to have max compatibility and efficiency.
+
 
