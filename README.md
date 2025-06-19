@@ -25,3 +25,25 @@ This package provides a ROS2 interface for Stereolabs ZED cameras, enabling acce
 *   ament_cmake
 
 
+### Published Topics
+
+| Topic                | Message Type                    | Description                              |
+| -------------------- | ------------------------------- | ---------------------------------------- |
+| `/left/image_raw`    | `sensor_msgs/msg/Image`         | Raw image from the left camera sensor.   |
+| `/left/camera_info`  | `sensor_msgs/msg/CameraInfo`    | Calibration data for the left camera.    |
+| `/right/image_raw`   | `sensor_msgs/msg/Image`         | Raw image from the right camera sensor.  |
+| `/right/camera_info` | `sensor_msgs/msg/CameraInfo`    | Calibration data for the right camera.   |
+
+### Parameters
+
+| Parameter        | Type     | Default Value                                | Description                                                                        |
+| ---------------- | -------- | -------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `conf_file_path` | `string` | *(path to file in `config` dir)* | Full path to the camera calibration `.conf` file.                                  |
+| `video_device`   | `string` | `/dev/video2`                                | The V4L2 device file for the camera.                                               |
+| `frame_width`    | `int`    | `2560`                                       | Total width of the side-by-side image to request. (HD: 2560, FHD: 3840).            |
+| `frame_height`   | `int`    | `720`                                        | Height of the image to request. (HD: 720, FHD: 1080).                               |
+| `fps`            | `int`    | `30`                                         | Frame rate to request from the camera.                                             |
+
+### Performance Note: High CPU Usage
+
+
