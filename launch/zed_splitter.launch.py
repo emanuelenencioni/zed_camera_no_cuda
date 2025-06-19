@@ -44,8 +44,8 @@ def generate_launch_description():
 
     # Zed Splitter Node that captures from the camera
     zed_splitter_node = Node(
-        package='zed_splitter',
-        executable='zed_splitter_node',
+        package='zed_camera_no_cuda',
+        executable='zed_camera_no_cuda_node',
         name='zed_splitter_node',
         output='screen',
         parameters=[{

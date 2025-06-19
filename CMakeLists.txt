@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(zed_splitter)
+project(zed_camera_no_cuda)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -14,10 +14,10 @@ find_package(image_transport REQUIRED)
 find_package(OpenCV REQUIRED)
 
 # Add executable
-add_executable(zed_splitter_node src/zed_splitter_node.cpp)
+add_executable(${PROJECT_NAME}_node src/zed_splitter_node.cpp)
 
 # Link dependencies
-ament_target_dependencies(zed_splitter_node
+ament_target_dependencies(${PROJECT_NAME}_node
   rclcpp
   sensor_msgs
   cv_bridge
@@ -26,7 +26,7 @@ ament_target_dependencies(zed_splitter_node
 
 # Install the executable
 install(TARGETS
-  zed_splitter_node
+  ${PROJECT_NAME}_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
