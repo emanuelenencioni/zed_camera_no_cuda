@@ -14,7 +14,7 @@ find_package(image_transport REQUIRED)
 find_package(OpenCV REQUIRED)
 
 # Add executable
-add_executable(${PROJECT_NAME}_node src/zed_splitter_node.cpp)
+add_executable(${PROJECT_NAME}_node src/zed_camera_node.cpp)
 
 # Link dependencies
 ament_target_dependencies(${PROJECT_NAME}_node
